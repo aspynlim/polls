@@ -1,0 +1,36 @@
+<script>
+	let name = 'James';
+	const handleClick = () => {
+		name = 'KYLE';
+	}
+</script>
+
+<main>
+	<h1>Hello {name}!</h1>
+	<p>Polls</p>
+	<button on:click={handleClick}>UPDATE</button>
+</main>
+
+<style lang="scss">
+	@import "./styles/variables.scss";
+
+	main {
+		text-align: center;
+		padding: 1em;
+		max-width: 240px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		color: $blue;
+		text-transform: uppercase;
+		font-size: 4em;
+		font-weight: 100;
+	}
+
+	@media (min-width: 640px) {
+		main {
+			max-width: none;
+		}
+	}
+</style>
