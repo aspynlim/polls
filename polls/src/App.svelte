@@ -1,26 +1,21 @@
 <script>
-	let name = 'James';
-	let color = 'green';
+	let firstName = 'James';
+	let lastName = 'Kim';
+	let color = 'red';
 
-	const handleClick = () => {
-		color = 'red';
-	};
-
-	const handleInput = (e) => {
-		color = e.target.value;
-	};
+	$: fullName = `${firstName} ${lastName}`;
+	$: console.log(color);
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p style="color: {color}">{color}</p>
-	<button on:click={handleClick}>UPDATE</button>
-	<!-- <input type="text" on:input={handleInput} value={color}/> -->
+	<p>{fullName}</p>
+	<input type="text" bind:value={firstName}/>
+	<input type="text" bind:value={lastName}/>
 	<input type="text" bind:value={color}>
 </main>
 
 <style lang="scss">
-	@import "./styles/variables.scss";
+	@import "./styles/styles.scss";
 
 	main {
 		text-align: center;
