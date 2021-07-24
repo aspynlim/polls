@@ -11,11 +11,9 @@
 		people = people.filter((person) => person.id != id);
 		console.log(e);
 	};
-
-	let num = 5;
 </script>
 
-<Modal />
+<Modal message="Hey, what's up ?" isPromo={true} />
 <main>
 	{#each people as person (person.id)}
 		<div>
