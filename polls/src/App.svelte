@@ -1,17 +1,20 @@
 <script>
-	let firstName = 'James';
-	let lastName = 'Kim';
-	let color = 'red';
-
-	$: fullName = `${firstName} ${lastName}`;
-	$: console.log(color);
+	let people = [
+		// {name: 'jen', color:'red', age: 20, id: 1},
+		// {name: 'kyle', color:'black', age: 30, id: 2},
+		// {name: 'sam', color:'purple', age: 40, id: 3},
+	]
 </script>
 
 <main>
-	<p>{fullName}</p>
-	<input type="text" bind:value={firstName}/>
-	<input type="text" bind:value={lastName}/>
-	<input type="text" bind:value={color}>
+	{#each people as person (person.id)}
+		<div>
+			<h4>{person.name}</h4>
+			<p>{person.age}</p>
+		</div>
+	{:else}
+		<p>There's no one to show.</p>
+	{/each}
 </main>
 
 <style lang="scss">
@@ -22,13 +25,6 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-	}
-
-	h1 {
-		color: $blue;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
 	}
 
 	@media (min-width: 640px) {
