@@ -1,11 +1,12 @@
 <script>
   export let message = 'DEFAULT';
-  let showModal = true;
+  export let showModal = false;
   export let isPromo = false;
 </script>
 
 {#if showModal}
-  <div class="backdrop" class:promo={isPromo}>
+  <!-- Forwarding "on click" event -->
+  <div class="backdrop" class:promo={isPromo} on:click>
     <div class="modal">
       <p>{message}</p>
     </div>

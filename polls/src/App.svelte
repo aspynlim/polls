@@ -1,6 +1,12 @@
 <script>
 	import Modal from "./Modal.svelte";
 
+	let showModal = true;
+	
+	const toggleModal = () => {
+	 showModal = !showModal;
+  }
+
 	let people = [
 		{name: 'jen', color:'red', age: 20, id: 1},
 		{name: 'kyle', color:'black', age: 30, id: 2},
@@ -13,8 +19,10 @@
 	};
 </script>
 
-<Modal message="Hey, what's up ?" isPromo={true} />
+<!-- "showModal={showModal}" is same as "{showModal}" -->
+<Modal message="Hey, what's up ?" isPromo={true} {showModal} on:click={toggleModal}/>
 <main>
+	<button on:click={toggleModal}>OPEN MODAL</button>
 	{#each people as person (person.id)}
 		<div>
 			{#if person.color === 'red'}
